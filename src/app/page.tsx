@@ -1,7 +1,11 @@
+import { GameList } from '../components/ui/GameList';
+
 export default async function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24 font-bold text-4xl text-blue-600'>
-      Hello, world!
+    <main className='min-h-screen w-full px-6 md:px-32 '>
+      <section id="GameGrid" className="2xl:max-w-[1280px] py-8 opacity-100">
+        <GameList />
+      </section>
     </main>
   )
 }
