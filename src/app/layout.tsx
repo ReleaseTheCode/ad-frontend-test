@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import "./globals.css";
 import { TopMenu } from "@/components";
 import { Footer } from "@/components/ui/Footer";
+import { Suspense } from "react";
 
 const archive = Archivo({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={archive.className}>
         <div className="h-screen">
           <TopMenu />
-          {children}
+          <Suspense>
+            {children}
+          </Suspense>
           <Footer />
         </div>
       </body>
