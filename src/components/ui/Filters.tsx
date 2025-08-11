@@ -1,8 +1,13 @@
-'use client'
+"use client"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
+interface Props  {
+  availableFilters: string[]
+  selectedGenre: string
+  handleSelectChange: (value:string) => void
+}
 
-export const Filters = ({availableFilters, selectedGenre = '', handleSelectChange}) => {
+export const Filters = ({availableFilters, selectedGenre = '', handleSelectChange}: Props) => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
