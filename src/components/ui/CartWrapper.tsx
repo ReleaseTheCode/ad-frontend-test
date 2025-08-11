@@ -4,6 +4,7 @@ import { OrderSummary } from './OrderSummary'
 import  { default as localCart } from '../../utils/localCart'
 import { Game } from '@/utils/endpoint'
 import { CheckOutCard } from './CheckOutCard'
+import { EmptyCart } from './EmptyCart'
 
 export const CartWrapper = () => {
 const {
@@ -20,17 +21,21 @@ const {
 
   return (
   <>
-    <p className='text-xl font-normal tracking-wide'>{shoppingCart.length} Items</p>
-    <div className='flex gap-20'>
-      <div className='divide-y mb-12'>
-      {
-        shoppingCart.map( game => (
-          <CheckOutCard
-            key={game.id}
-            item={game}
-            DeleteFromCart={handleDeleteGame}
-          />
-        ) )
+    <p className='text-xl font-normal tracking-wide mb-8 md:mb-12'>{shoppingCart.length} Items</p>
+    <div className='flex flex-col md:flex-row md:justify-between'>
+      <div className='divide-y mb-12 2xl:min-w-[678px]'>
+      { shoppingCart.length == 0 ?
+        (
+          <EmptyCart />
+        ) : (
+          shoppingCart.map( game => (
+            <CheckOutCard
+              key={game.id}
+              item={game}
+              DeleteFromCart={handleDeleteGame}
+            />
+          ) )
+        )
       }
       </div>
       <div className='2xl:min-w-[532px]'>
