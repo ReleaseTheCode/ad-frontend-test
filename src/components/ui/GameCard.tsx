@@ -12,14 +12,14 @@ export const GameCard = ( game : Game) => {
   }, [game.id]);
 
   const toggleCart = () => {
-    localCart.toggleCart(game.id)
+    localCart.toggleCart(game)
     setInCart(!inCart);
   }
   
 
   return (
     <div className="w-full max-w-[327px] md:max-w-[380px] rounded-xl border-[0.5px] p-[23px] flex flex-col">
-      <div className="relative w-full max-w-[279px] md:w-[332px] h-[240px] mb-5 overflow-hidden">
+      <div className="relative w-full max-w-[279px] md:w-[332px] md:max-w-[332px] h-[240px] mb-5 overflow-hidden">
         <Image
           src={game.image}
           alt={game.name}
@@ -38,8 +38,11 @@ export const GameCard = ( game : Game) => {
           {game.genre}
         </p>
 
-        <div className="flex justify-between items-center mb-4 text-[#3B3B3B]">
-          <h2 className="text-lg font-bold">
+        <div className="flex justify-between gap-1 items-center mb-4 text-[#3B3B3B]">
+          <h2
+            className="text-lg font-bold max-w-[260px] whitespace-nowrap truncate overflow-hidden"
+            title={game.name}
+          >
             {game.name}
           </h2>
           <span className="text-xl font-bold">
@@ -49,7 +52,7 @@ export const GameCard = ( game : Game) => {
 
         <button
           onClick={toggleCart}
-          className="w-full border border-black font-bold text-[#3B3B3B] py-2 rounded-lg opacity-100"
+          className="w-full btn-secondary"
         >
           { inCart ? `REMOVE` : `ADD TO CART` }
         </button>

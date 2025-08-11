@@ -1,5 +1,6 @@
 export * from './ui/TopMenu'
 export * from './ui/Footer'
+export * from './ui/Filters'
 export * from './ui/GameList'
 export * from './ui/GameCard'
 export * from './ui/Loader'

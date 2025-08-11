@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={archive.className}>
-        <TopMenu />
-        {children}
-        <Footer />
+        <div className="h-screen">
+          <TopMenu />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
