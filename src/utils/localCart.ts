@@ -17,6 +17,7 @@ const existInCart = (id: string): boolean => {
 }
 
 const cart = (): Game[] => {
+  if( typeof window === 'undefined' ) return []
   return JSON.parse(localStorage.getItem('shoppingCart') || '[]');
 }
 
