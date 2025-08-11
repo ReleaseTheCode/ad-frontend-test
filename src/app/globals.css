@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn-primary {
+  @apply border bg-[#585660] text-white rounded-lg opacity-100 py-4
+}
+
+.btn-secondary {
+  @apply border border-black font-bold text-[#3B3B3B] py-2 rounded-lg opacity-100
+}
